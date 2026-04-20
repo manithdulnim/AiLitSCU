@@ -135,6 +135,15 @@
             font-size: 2rem;
             margin-bottom: 10px;
         }
+        .pdf-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #415a77;
+        }
+        .pdf-section h3 {
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
         .download-btn {
             display: inline-block;
             background-color: #00f0ff;
@@ -154,6 +163,7 @@
             height: 500px;
             border: none;
             border-radius: 8px;
+            background-color: #0d1b2a;
         }
 
         /* Timeline for Agenda */
@@ -215,11 +225,20 @@
         }
         .team-member {
             background-color: #0d1b2a;
-            padding: 10px;
+            padding: 15px 10px;
             border-radius: 6px;
             text-align: center;
             font-size: 0.9rem;
             border: 1px solid #415a77;
+        }
+        .leader-badge {
+            display: block;
+            color: #00f0ff;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         /* Footer */
@@ -263,19 +282,30 @@
     </div>
 
     <div class="card">
-        <h2>Workshop Presentation</h2>
+        <h2>Workshop Resources</h2>
         
         <div id="locked-message">
             <div class="lock-icon">🔒</div>
             <h3>Content Locked</h3>
-            <p>The presentation slides will become available here automatically when the workshop begins on April 28th at 1:30 PM.</p>
+            <p>The presentation slides and prompt documents will become available here automatically when the workshop begins on April 28th at 1:30 PM.</p>
         </div>
 
         <div id="pdf-container">
-            <p>Follow along with the slides below:</p>
-            <iframe src="presentation.pdf" class="pdf-viewer" title="Workshop Presentation PDF"></iframe>
-            <br>
-            <a href="presentation.pdf" target="_blank" class="download-btn">Open PDF in New Tab</a>
+            <p>Follow along with the materials below:</p>
+            
+            <div class="pdf-section" style="border-top: none; margin-top: 10px; padding-top: 0;">
+                <h3>Main Presentation</h3>
+                <iframe src="presentation.pdf" class="pdf-viewer" title="Workshop Presentation PDF"></iframe>
+                <br>
+                <a href="presentation.pdf" target="_blank" class="download-btn">Open Presentation in New Tab</a>
+            </div>
+
+            <div class="pdf-section">
+                <h3>Workshop Prompts</h3>
+                <iframe src="prompts.pdf" class="pdf-viewer" title="Workshop Prompts PDF"></iframe>
+                <br>
+                <a href="prompts.pdf" target="_blank" class="download-btn">Open Prompts in New Tab</a>
+            </div>
         </div>
     </div>
 
@@ -360,7 +390,10 @@
         <h2>Meet the Team</h2>
         <p>This workshop is brought to you by SCU Year 2 IT Students:</p>
         <div class="team-grid">
-            <div class="team-member">H. N. Manith Dulnim</div>
+            <div class="team-member" style="border-color: #00f0ff; background-color: #12283e;">
+                <strong>H. N. Manith Dulnim</strong>
+                <span class="leader-badge">Project Team Leader</span>
+            </div>
             <div class="team-member">R. Vithushickka</div>
             <div class="team-member">N. Thinesh</div>
             <div class="team-member">W. S. Dehoedt</div>
@@ -389,11 +422,11 @@
         const pdfContainer = document.getElementById('pdf-container');
 
         if (now >= workshopStartTime) {
-            // It's time! Hide the lock, show the PDF.
+            // It's time! Hide the lock, show the PDFs.
             lockedMessage.style.display = 'none';
             pdfContainer.style.display = 'block';
         } else {
-            // Not time yet. Make sure lock is shown, PDF is hidden.
+            // Not time yet. Make sure lock is shown, PDFs are hidden.
             lockedMessage.style.display = 'block';
             pdfContainer.style.display = 'none';
         }
