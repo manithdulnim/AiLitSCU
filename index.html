@@ -36,10 +36,17 @@
             margin-top: 1rem;
             font-weight: bold;
         }
+        .tagline {
+            color: #00f0ff;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
         .conducted-by {
             color: #778da9;
             font-size: 1rem;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
             font-style: italic;
         }
 
@@ -61,7 +68,7 @@
             transition: transform 0.3s ease;
         }
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-2px);
             border-color: #00f0ff;
         }
         h2 {
@@ -92,7 +99,7 @@
             font-size: 1.1rem;
         }
 
-        /* Lists for Curriculum */
+        /* Lists */
         ul {
             list-style-type: none;
             padding: 0;
@@ -108,6 +115,72 @@
             position: absolute;
             left: 0;
             top: 2px;
+        }
+
+        /* Timeline for Agenda */
+        .timeline {
+            margin-top: 20px;
+            border-left: 2px solid #415a77;
+            padding-left: 20px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background-color: #00f0ff;
+            border-radius: 50%;
+        }
+        .time-badge {
+            display: inline-block;
+            background-color: #0d1b2a;
+            color: #7df9ff;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            border: 1px solid #415a77;
+        }
+        .timeline-title {
+            font-weight: bold;
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            display: block;
+        }
+        .timeline-desc {
+            color: #a9b5c7;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+        .timeline-host {
+            color: #778da9;
+            font-size: 0.85rem;
+            font-style: italic;
+            display: block;
+            margin-top: 3px;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .team-member {
+            background-color: #0d1b2a;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.9rem;
+            border: 1px solid #415a77;
         }
         
         /* Footer */
@@ -126,7 +199,8 @@
 <header>
     <h1>AI Literacy</h1>
     <div class="subtitle">Empowering the Next Gen</div>
-    <div class="conducted-by">Conducted by Year 2 Semester 2 IT students</div>
+    <div class="tagline">Beyond Chatbots; Deep into AI</div>
+    <div class="conducted-by">Conducted by SCU Year 2 Semester 2 IT Students</div>
 </header>
 
 <div class="container">
@@ -140,7 +214,7 @@
             </div>
             <div class="detail-item">
                 <strong>Time</strong>
-                1:30 PM - 4:00 PM
+                9:00 AM - 11:30 AM
             </div>
             <div class="detail-item">
                 <strong>Location</strong>
@@ -150,22 +224,96 @@
     </div>
 
     <div class="card">
-        <h2>What You'll Learn</h2>
+        <h2>Workshop Sneak Peek</h2>
+        <p>Curious about what we'll be covering? Here is a glimpse into the topics we are exploring:</p>
         <ul>
-            <li><strong>AI Fundamentals:</strong> Core concepts, daily apps, recent advances & future directions.</li>
-            <li><strong>AI & the Job Market:</strong> New trends, career opportunities, and what's changing right now.</li>
-            <li><strong>AI Coding Tools:</strong> How AI is transforming software development.</li>
-            <li><strong>Live Build Sessions:</strong> Live coding & AI prompt briefing in real time.</li>
+            <li><strong>The Big Question:</strong> Is AI taking our jobs, or changing them? We will look at real data on emerging career trends and how you can position yourself in the AI era.</li>
+            <li><strong>Agentic Coding:</strong> Discover how modern development is shifting from simple autocomplete to autonomous pipelines using tools like Claude Code, Cursor, and OpenClaw.</li>
+            <li><strong>Live Demos & Builds:</strong> No boring lectures here. Watch us build a website and generate high-quality, professional images in real-time.</li>
+            <li><strong>Student Challenge:</strong> Get ready to participate in a live student build session where you can suggest ideas and see them come to life!</li>
         </ul>
     </div>
 
     <div class="card">
-        <h2>Who Should Attend</h2>
-        <p>This workshop is specifically targeted toward:</p>
-        <ul>
-            <li>Semester 01 & 02 foundation IT and EE students.</li>
-        </ul>
-        <p style="color: #7df9ff; font-style: italic;">*This workshop is also open to any students that are interested in AI.</p>
+        <h2>Workshop Agenda</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time-badge">9:00 - 9:10</span>
+                <span class="timeline-title">Welcome & AI in the Wild, Introductions</span>
+                <div class="timeline-desc">Showcasing curated AI-related content and introducing our team and purpose.</div>
+                <span class="timeline-host">Lead: Manith</span>
+            </div>
+            <div class="timeline-item">
+                <span class="time-badge">9:10 - 9:30</span>
+                <span class="timeline-title">AI Fundamentals</span>
+                <div class="timeline-desc">Covering core AI concepts, daily life applications, recent advancements, and future directions.</div>
+                <span class="timeline-host">Lead: Wyatt</span>
+            </div>
+            <div class="timeline-item">
+                <span class="time-badge">9:30 - 9:35</span>
+                <span class="timeline-title">Student Challenge Briefing</span>
+                <div class="timeline-desc">Explaining the live-build task to the audience.</div>
+                <span class="timeline-host">Lead: Vithushikka</span>
+            </div>
+            <div class="timeline-item">
+                <span class="time-badge">9:35 - 9:55</span>
+                <span class="timeline-title">Live Demo 1: Building a Website with AI</span>
+                <div class="timeline-desc">A practical demonstration of vibe coding and prompt briefing to build a simple personal portfolio.</div>
+                <span class="timeline-host">Leads: Hushnee & Kirushanthan (Interactive with Dilusha)</span>
+            </div>
+            <div class="timeline-item">
+                <span class="time-badge">9:55 - 10:15</span>
+                <span class="timeline-title">Lecture 2: New Trends in Job Fields</span>
+                <div class="timeline-desc">A discussion focused on emerging career trends and opportunities driven by AI.</div>
+                <span class="timeline-host">Lead: Manith</span>
+            </div>
+            <div class="timeline-item">
+                <span class="time-badge">10:15 - 10:35</span>
+                <span class="timeline-title">AI Coding Tools</span>
+                <div class="timeline-desc">An overview and demonstration of AI-powered coding tools and how they are transforming software development.</div>
+                <span class="timeline-host">Lead: Nejana</span>
+            </div>
+            <div class="timeline-item">
+                <span class="time-badge">10:35 - 11:00</span>
+                <span class="timeline-title">Live Demo 2: Generating an Image with AI</span>
+                <div class="timeline-desc">Real-time or pre-generated demonstration explaining the prompts and settings used for AI image generation.</div>
+                <span class="timeline-host">Leads: Thinesh & Abba (Interactive with Dilusha)</span>
+            </div>
+            <div class="timeline-item">
+                <span class="time-badge">11:00 - 11:20</span>
+                <span class="timeline-title">Student Live Build</span>
+                <div class="timeline-desc">Volunteers work simultaneously while the audience watches, cheers, and suggests ideas, ending with a presentation.</div>
+                <span class="timeline-host">Leads: Vithushikka & Dilusha</span>
+            </div>
+            <div class="timeline-item">
+                <span class="time-badge">11:20 - 11:25</span>
+                <span class="timeline-title">Open Q&A + Tools Roundup</span>
+                <div class="timeline-desc">Opening the floor for questions and sharing a curated list of explored AI tools.</div>
+                <span class="timeline-host">Lead: Manith</span>
+            </div>
+            <div class="timeline-item">
+                <span class="time-badge">11:25 - 11:30</span>
+                <span class="timeline-title">Wrap Up</span>
+                <div class="timeline-desc">Concluding the workshop with a memorable closing message.</div>
+                <span class="timeline-host">Lead: Manith</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Meet the Team</h2>
+        <p>This workshop is brought to you by SLIIT City Uni (SCU) Year 2 IT Students:</p>
+        <div class="team-grid">
+            <div class="team-member">H. N. Manith Dulnim</div>
+            <div class="team-member">R. Vithushickka</div>
+            <div class="team-member">N. Thinesh</div>
+            <div class="team-member">W. S. Dehoedt</div>
+            <div class="team-member">M. R. H. Abdallah</div>
+            <div class="team-member">K. N. L. Fernando</div>
+            <div class="team-member">D. S. Galhena</div>
+            <div class="team-member">J. A. Hushnee</div>
+            <div class="team-member">V. Kirushanthan</div>
+        </div>
     </div>
 
 </div>
