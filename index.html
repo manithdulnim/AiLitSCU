@@ -117,6 +117,45 @@
             top: 2px;
         }
 
+        /* PDF Viewer Section */
+        #pdf-container {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+            text-align: center;
+        }
+        #locked-message {
+            background-color: #0d1b2a;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px dashed #415a77;
+            margin-top: 20px;
+        }
+        .lock-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .download-btn {
+            display: inline-block;
+            background-color: #00f0ff;
+            color: #0a0f1a;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #7df9ff;
+        }
+        iframe.pdf-viewer {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 8px;
+        }
+
         /* Timeline for Agenda */
         .timeline {
             margin-top: 20px;
@@ -214,12 +253,29 @@
             </div>
             <div class="detail-item">
                 <strong>Time</strong>
-                9:00 AM - 11:30 AM
+                1:30 PM - 4:00 PM
             </div>
             <div class="detail-item">
                 <strong>Location</strong>
                 Confifi HN - G01
             </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Workshop Presentation</h2>
+        
+        <div id="locked-message">
+            <div class="lock-icon">🔒</div>
+            <h3>Content Locked</h3>
+            <p>The presentation slides will become available here automatically when the workshop begins on April 28th at 1:30 PM.</p>
+        </div>
+
+        <div id="pdf-container">
+            <p>Follow along with the slides below:</p>
+            <iframe src="presentation.pdf" class="pdf-viewer" title="Workshop Presentation PDF"></iframe>
+            <br>
+            <a href="presentation.pdf" target="_blank" class="download-btn">Open PDF in New Tab</a>
         </div>
     </div>
 
@@ -302,7 +358,7 @@
 
     <div class="card">
         <h2>Meet the Team</h2>
-        <p>This workshop is brought to you by SLIIT City Uni (SCU) Year 2 IT Students:</p>
+        <p>This workshop is brought to you by SCU Year 2 IT Students:</p>
         <div class="team-grid">
             <div class="team-member">H. N. Manith Dulnim</div>
             <div class="team-member">R. Vithushickka</div>
@@ -321,6 +377,34 @@
 <footer>
     <p>&copy; 2026 AI Literacy Workshop. All rights reserved.</p>
 </footer>
+
+<script>
+    // Set the exact start time of the workshop (Year, Month Index 0-11, Day, Hour, Minute)
+    // April is month 3 in JavaScript (0 = Jan, 1 = Feb, 2 = Mar, 3 = Apr)
+    const workshopStartTime = new Date(2026, 3, 28, 13, 30, 0).getTime();
+
+    function checkTimeAndReveal() {
+        const now = new Date().getTime();
+        const lockedMessage = document.getElementById('locked-message');
+        const pdfContainer = document.getElementById('pdf-container');
+
+        if (now >= workshopStartTime) {
+            // It's time! Hide the lock, show the PDF.
+            lockedMessage.style.display = 'none';
+            pdfContainer.style.display = 'block';
+        } else {
+            // Not time yet. Make sure lock is shown, PDF is hidden.
+            lockedMessage.style.display = 'block';
+            pdfContainer.style.display = 'none';
+        }
+    }
+
+    // Check immediately when the page loads
+    checkTimeAndReveal();
+
+    // Check every minute (60000 milliseconds) just in case someone leaves the page open
+    setInterval(checkTimeAndReveal, 60000);
+</script>
 
 </body>
 </html>
